@@ -1,7 +1,4 @@
-const API_BASE = import.meta.env.DEV 
-  ? '/api/proxy'
-  : 'https://ai.hackclub.com/proxy/v1/chat/completions';
-const API_KEY = 'sk-hc-v1-9f014e0f299f43848b4aa17fa0c69b3f5347bb18ef7f4627b5cea30023ddc1ef';
+const API_BASE = '/api/proxy';
 
 interface ChatMessage {
   role: 'user' | 'assistant' | 'system';
@@ -17,7 +14,6 @@ async function callAI(messages: ChatMessage[], temperature: number = 0.7, maxTok
   };
 
   const headers = {
-    'Authorization': `Bearer ${API_KEY}`,
     'Content-Type': 'application/json',
   };
 
