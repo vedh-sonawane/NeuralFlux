@@ -390,8 +390,17 @@ function GlitchTransition() {
 
 // Leaderboard Component
 function LeaderboardView({ onBack }: { onBack: () => void }) {
-  const [leaderboard, setLeaderboard] = useState([
-    { id: 1, name: 'Alex Chen', score: 45230, rank: 1, previousRank: 1, previousScore: 45230, rankChange: null as 'up' | 'down' | null, scoreChange: null as 'up' | 'down' | null },
+  const [leaderboard, setLeaderboard] = useState<Array<{
+    id: number;
+    name: string;
+    score: number;
+    rank: number;
+    previousRank: number;
+    previousScore: number;
+    rankChange: 'up' | 'down' | null;
+    scoreChange: 'up' | 'down' | null;
+  }>>([
+    { id: 1, name: 'Alex Chen', score: 45230, rank: 1, previousRank: 1, previousScore: 45230, rankChange: null, scoreChange: null },
     { id: 2, name: 'Maya Patel', score: 43890, rank: 2, previousRank: 2, previousScore: 43890, rankChange: null, scoreChange: null },
     { id: 3, name: 'Jordan Kim', score: 42560, rank: 3, previousRank: 3, previousScore: 42560, rankChange: null, scoreChange: null },
     { id: 4, name: 'Sam Rivera', score: 41200, rank: 4, previousRank: 4, previousScore: 41200, rankChange: null, scoreChange: null },
@@ -406,12 +415,21 @@ function LeaderboardView({ onBack }: { onBack: () => void }) {
   useEffect(() => {
     const updateLeaderboard = () => {
       setLeaderboard(prev => {
-        const newBoard = prev.map(p => ({ 
+        const newBoard: Array<{
+          id: number;
+          name: string;
+          score: number;
+          rank: number;
+          previousRank: number;
+          previousScore: number;
+          rankChange: 'up' | 'down' | null;
+          scoreChange: 'up' | 'down' | null;
+        }> = prev.map(p => ({ 
           ...p, 
           previousRank: p.rank, 
           previousScore: p.score,
-          rankChange: null,
-          scoreChange: null 
+          rankChange: null as 'up' | 'down' | null,
+          scoreChange: null as 'up' | 'down' | null
         }));
         
         // Randomly change scores for all players

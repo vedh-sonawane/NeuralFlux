@@ -30,8 +30,8 @@ export default function Game({ onBackToHome }: GameProps) {
   const [showAchievementNotification, setShowAchievementNotification] = useState<{ name: string; icon: string } | null>(null);
   const scoreRef = useRef<HTMLDivElement>(null);
   const gameOverRef = useRef<HTMLDivElement>(null);
-  const warningTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const comboTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const warningTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const comboTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const questionsAnsweredRef = useRef(0);
   const correctAnswersRef = useRef(0);
   const perfectAnswersRef = useRef(0);

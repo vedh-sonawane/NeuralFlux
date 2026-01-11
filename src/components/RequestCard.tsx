@@ -39,7 +39,6 @@ export default function RequestCard({ request, onSubmit, onSkip }: RequestCardPr
   const [showSkipTooltip, setShowSkipTooltip] = useState(false);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const userPanelRef = useRef<HTMLDivElement>(null);
-  const skipButtonRef = useRef<HTMLButtonElement>(null);
   
   const timePercentage = (request.timeRemaining / request.timeLimit) * 100;
   const isUrgent = timePercentage < 30;
