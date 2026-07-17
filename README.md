@@ -4,7 +4,7 @@ A fast-paced, interactive web game inspired by Overcooked, where you play as an 
 
 ## Quick Start
 
-```bash
+```bash 
 npm install
 npm run dev
 ```
